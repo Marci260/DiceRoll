@@ -6,9 +6,17 @@
     xmlns:local="clr-namespace:DiceRollGame"
     Title="DiceRollGame">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <Tab Title="Kockadobás">
+            <ShellContent
+                Route="DicePage"
+                ContentTemplate="{DataTemplate views:DicePage}" />
+        </Tab>
+        <Tab Title="Játékosok">
+            <ShellContent
+                Route="PlayersPage"
+                ContentTemplate="{DataTemplate views:PlayersPage}" />
+        </Tab>
+    </TabBar>
 
 </Shell>

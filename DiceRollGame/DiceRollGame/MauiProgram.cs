@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using DiceRollGame.Services;
+using DiceRollGame.ViewModels;
+using DiceRollGame.Views;
+using Microsoft.Extensions.Logging;
 
 namespace DiceRollGame
 {
@@ -15,8 +18,19 @@ namespace DiceRollGame
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<DatabaseService>();
+
+            builder.Services.AddTransient<DiceViewModel>();
+            builder.Services.AddTransient<DicePage>();
+
+            builder.Services.AddTransient<PlayersViewModel>();
+            builder.Services.AddTransient<PlayersPage>();
+
+            builder.Services.AddTransient<PlayerDetailViewModel>();
+            builder.Services.AddTransient<PlayerDetailPage>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

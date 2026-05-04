@@ -2,12 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiceRollGame.Views.PlayersPage"
+             x:Name="PlayersPageRoot"
              Title="PlayersPage">
     <Grid RowDefinitions="*, Auto">
         <CollectionView Grid.Row="0" ItemsSource="{Binding Players}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout Padding="10">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding BindingContext.PlayerSelectedCommand, Source={x:Reference PlayersPageRoot}}" 
+                                CommandParameter="{Binding .}" />
+                        </StackLayout.GestureRecognizers>
+
                         <Label Text="{Binding PlayerName}" FontSize="18" FontAttributes="Bold" />
                         <Label Text="{Binding CurrentScore, StringFormat='Pont: {0}'}" />
                         <Label Text="{Binding GameName, StringFormat='Játék: {0}'}" TextColor="Gray" />
@@ -15,6 +22,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center" Padding="10">
             <Button Text="Új Játékos" Command="{Binding AddPlayerCommand}" />
             <Button Text="Eredmény Megosztása" Command="{Binding ShareResultsCommand}" />

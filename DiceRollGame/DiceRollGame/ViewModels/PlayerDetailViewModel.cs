@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace DiceRollGame.ViewModels
 {
+    [QueryProperty(nameof(Player), "PlayerToEdit")]
     public partial class PlayerDetailViewModel : ObservableObject
     {
         private readonly DatabaseService _databaseService;

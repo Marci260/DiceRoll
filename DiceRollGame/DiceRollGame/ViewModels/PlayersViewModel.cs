@@ -72,5 +72,19 @@ namespace DiceRollGame.ViewModels
         {
             await Shell.Current.GoToAsync(nameof(PlayerDetailPage));
         }
+
+        [RelayCommand]
+        public async Task PlayerSelectedAsync(PlayerScore player)
+        {
+            if (player is null)
+                return;
+
+            var navigationParameter = new Dictionary<string, object>
+        {
+            { "PlayerToEdit", player }
+        };
+
+            await Shell.Current.GoToAsync(nameof(PlayerDetailPage), navigationParameter);
+        }
     }
 }

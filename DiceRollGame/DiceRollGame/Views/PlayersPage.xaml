@@ -16,6 +16,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <HorizontalStackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center" Padding="10">
+            <Button Text="Új Játékos" Command="{Binding AddPlayerCommand}" />
             <Button Text="Eredmény Megosztása" Command="{Binding ShareResultsCommand}" />
         </HorizontalStackLayout>
     </Grid>

@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using DiceRollGame.Models;
 using DiceRollGame.Services;
+using DiceRollGame.Views;
 using System.Collections.ObjectModel;
 
 namespace DiceRollGame.ViewModels
@@ -64,6 +65,12 @@ namespace DiceRollGame.ViewModels
                 Text = shareText,
                 Title = "Game Results"
             });
+        }
+
+        [RelayCommand]
+        public async Task AddPlayerAsync()
+        {
+            await Shell.Current.GoToAsync(nameof(PlayerDetailPage));
         }
     }
 }

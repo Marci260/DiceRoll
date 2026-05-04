@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiceRollGame.Views.PlayerDetailPage"
+             Title="PlayerDetailPage">
+    <VerticalStackLayout Spacing="15" Padding="20">
+        <Entry Placeholder="Játékos Neve" Text="{Binding Player.PlayerName}" />
+        <Entry Placeholder="Játék Neve" Text="{Binding Player.GameName}" />
+        <Entry Placeholder="Jelenlegi Pontszám" Text="{Binding Player.CurrentScore}" Keyboard="Numeric" />
+        <Button Text="Mentés" Command="{Binding SaveCommand}" />
+    </VerticalStackLayout>
+</ContentPage>

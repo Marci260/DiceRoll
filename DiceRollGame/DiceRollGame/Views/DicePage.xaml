@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiceAndScore.Views.DicePage"
+             Title="Kockadobás">
+    <VerticalStackLayout Spacing="25" Padding="30" VerticalOptions="Center">
+        <Label Text="Rázd meg a telefont a dobáshoz!" FontSize="20" HorizontalOptions="Center" />
+        <Label Text="{Binding DiceResult}" FontSize="100" FontAttributes="Bold" HorizontalOptions="Center" />
+        <Button Text="Kézi Dobás" Command="{Binding RollDiceCommand}" />
+    </VerticalStackLayout>
+</ContentPage>
